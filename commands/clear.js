@@ -9,7 +9,7 @@ module.exports = {
 
         const userRoles = interaction.member._roles;
 
-        const hasPermission = userRoles.findIndex((v) => v == '969022489751592972') !== -1;
+        const hasPermission = userRoles.findIndex((v) => v == '969022753535578152' || v=='969022489244090368') !== -1;
         if(!hasPermission) {
             interaction.reply({ content: 'Tu ne possede pas les permissions requise.', ephemeral: true });
             return;
@@ -19,10 +19,8 @@ module.exports = {
 
         const channel = client.channels.cache.find(channel => channel.id === channel_id)
         
- //       const clooned_channel = await channel.clone();
- //       channel.delete();
-
-        
+        const clooned_channel = await channel.clone();
+        channel.delete();
         
         interaction.reply("Channel Cleared")
 
